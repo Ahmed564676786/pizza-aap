@@ -5,12 +5,9 @@ import {removeItem} from '../cart/cartSlice.js'
 const Remove = ({pizzaId})=>{
 
     const dispatch = useDispatch();
+    function handleRemove(pizzaId){
 
-    function handleRemove({pizzaId}){
-
-
-        alert(pizzaId);
-        
+        dispatch(removeItem(pizzaId));
         
     }
 

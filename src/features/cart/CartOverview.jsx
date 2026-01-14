@@ -11,8 +11,8 @@ function CartOverview() {
   const totalPrice = useSelector(getTotalPrice);
   return (
     <div className="flex text-stone-300 px-4 text-sm py-2 justify-between bg-stone-700">
-      <p>
-        <span>{totalQuantity}pizzas</span>
+      <p className="space-x-2 text-lg">
+        <span className="">{totalQuantity}pizzas</span>
         <span>${totalPrice}</span>
       </p>
       <Button to="/cart" type="link">Open cart &rarr;</Button>
