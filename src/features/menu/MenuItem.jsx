@@ -3,10 +3,11 @@ import { formatCurrency } from "../../utils/helpers";
 import Button  from "../../ui/Button";
 import { useDispatch, useSelector } from "react-redux";
 import {addItem} from "../cart/cartSlice";
-import Remove from "../cart/Remove"
+import Remove from "../cart/Remove";
+import {getQtyById} from '../cart/cartSlice';
 
+import IncreaseDecrease from "../cart/IncreaseDecrease";
 
- import {getQtyById} from '../cart/cartSlice'
 
 
 function MenuItem({ pizza }) {
@@ -47,7 +48,7 @@ function MenuItem({ pizza }) {
           { 
 
    
-            qty > 0 ? <Remove pizzaId={id}/>:<Button type="primary" onClick={handleAddItem}>Add To Cart</Button>
+            qty > 0 ?<div className="space-x-4"><IncreaseDecrease id={id}/> <Remove pizzaId={id}/></div>:<Button type="primary" onClick={handleAddItem}>Add To Cart</Button>
           }
 
           

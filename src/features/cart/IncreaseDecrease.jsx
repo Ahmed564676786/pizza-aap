@@ -1,6 +1,6 @@
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import Button from "../../ui/Button";
-import {increaseQty,decreaseQty} from './cartSlice'
+import {increaseQty,decreaseQty,getQtyById} from './cartSlice'
 
 
 function IncreaseDecrease({id}){
@@ -8,6 +8,7 @@ function IncreaseDecrease({id}){
 
     const dispatch = useDispatch();
 
+    const qtyById =  useSelector(getQtyById(id));
 
     function Increase(id){
 
@@ -17,7 +18,7 @@ function IncreaseDecrease({id}){
     }
     function Decrease(){
 
-        alert('Hello');
+         dispatch(decreaseQty(id));
     }
 
     return(
@@ -26,8 +27,8 @@ function IncreaseDecrease({id}){
        <>
        
         <Button type="primary" onClick={()=>Increase(id)}>+</Button>
-        <span>1</span>
-        <Button type="primary">-</Button>
+        <span>{qtyById}</span>
+        <Button type="primary" onClick={()=>Decrease(id)}>-</Button>
        </>
     );
 }
